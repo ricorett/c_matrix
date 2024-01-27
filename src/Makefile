@@ -33,7 +33,9 @@ test: libs21_matrix.a tests.o
 gcov_report: $(SOURCES) libs21_matrix.a tests.c
 	$(CC) $(CFLAGS) $^ -o gcov_test $(LFLAGS) --coverage
 	./gcov_test
-	gcovr $(GCOV_FLAGS)
+	lcov --capture --directory . --output-file coverage.info
+	genhtml coverage.info --output-directory gcov_report
+#	 gcovr $(GCOV_FLAGS)
 	rm -f gcov_test
 
 # gcov_report: libs21_matrix.a tests.c
