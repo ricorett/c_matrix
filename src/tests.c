@@ -93,6 +93,7 @@ START_TEST(test_create_matrix_8) {
   s21_remove_matrix(&A);
 }
 
+
 START_TEST(test_eq_matrix_1) {
   int rows = 1, columns = 2;
   matrix_t A = {0}, B = {0};
