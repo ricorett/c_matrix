@@ -9,6 +9,10 @@ int s21_sum_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
     return CALC_ERROR;
 }
 
+ if ((A->rows == 0) && (A->columns == 0) || (B->rows == 0) && (B->columns == 0)) {
+    return INVALID_MATRIX;
+}
+
 s21_create_matrix(A->rows, A->columns, result);
 
 for (int i = 0; i < A->rows; i++) {
@@ -26,7 +30,10 @@ int s21_sub_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
  if (!A || !B || !result) {
     return INVALID_MATRIX;
   }
-  
+ 
+ if ((A->rows == 0) && (A->columns == 0) || (B->rows == 0) && (B->columns == 0)) {
+    return INVALID_MATRIX;
+} 
   if ((A->rows != B->rows) || (A->columns != B->columns)) {
     return CALC_ERROR;
 }
