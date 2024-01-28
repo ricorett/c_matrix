@@ -9,7 +9,7 @@ int s21_sum_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
     return CALC_ERROR;
 }
 
- if ((A->rows == 0) && (A->columns == 0) || (B->rows == 0) && (B->columns == 0)) {
+ if ((A->rows <= 0) && (A->columns <= 0) || (B->rows <= 0) && (B->columns <= 0)) {
     return INVALID_MATRIX;
 }
 
@@ -31,7 +31,7 @@ int s21_sub_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
     return INVALID_MATRIX;
   }
  
- if ((A->rows == 0) && (A->columns == 0) || (B->rows == 0) && (B->columns == 0)) {
+ if ((A->rows <= 0) && (A->columns <= 0) || (B->rows <= 0) && (B->columns <= 0)) {
     return INVALID_MATRIX;
 } 
   if ((A->rows != B->rows) || (A->columns != B->columns)) {

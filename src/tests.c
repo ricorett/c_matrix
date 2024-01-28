@@ -926,7 +926,7 @@ Suite *s21_transpose_test(void) {
   Suite *s;
   TCase *tc_core;
 
-  s = suite_create("test_tanspose");
+  s = suite_create("test_transpose");
   tc_core = tcase_create("Core");
 
   tcase_add_test(tc_core, test_transpose_1);

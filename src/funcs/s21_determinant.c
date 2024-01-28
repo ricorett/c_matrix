@@ -1,9 +1,18 @@
 #include "../s21_matrix.h"
 
 int s21_determinant(matrix_t *A, double *result) {
-  if (!A || !result || A->rows != A->columns) {
+  if (A == NULL || result == NULL) {
     return INVALID_MATRIX;
   }
+
+  if(A->rows != A->columns){
+    return CALC_ERROR;
+  }
+
+   if (A->rows <= 0 && A->columns <= 0) {
+    return INVALID_MATRIX;
+  }
+
   if (A->rows == 1) {
     *result = A->matrix[0][0];
     return OK;

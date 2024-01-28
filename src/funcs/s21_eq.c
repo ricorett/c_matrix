@@ -4,7 +4,7 @@ int s21_eq_matrix(matrix_t *A, matrix_t *B) {
   if(!A || !B){
     return FAILURE;
   }
-  if(A->matrix == NULL || B->matrix == NULL){
+  if(A == NULL || B->matrix == NULL){
     return FAILURE;
   }
 
