@@ -15,20 +15,14 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
   result->rows = rows;
   result->columns = columns;
   result->matrix = calloc(rows, sizeof(double *));
-  if (result->matrix == NULL) {
+  if (result == NULL) {
     return INVALID_MATRIX;
   }
 
   for (int i = 0; i < rows; i++) {
-    result->matrix[i] = (double*)calloc(columns, sizeof(double));
+    result->matrix[i] = (double *)calloc(columns, sizeof(double));
     if (result->matrix[i] == NULL) {
-      for (int j = 0; j < i; j++) {
-        free(result->matrix[j]);
-      }
-      free(result->matrix);
-      result->matrix = NULL;
-      result->rows = rows;
-      result->columns = columns;
+      s21_remove_matrix(result);
       return INVALID_MATRIX;
     }
   }
